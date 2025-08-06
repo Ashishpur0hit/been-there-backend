@@ -43,4 +43,12 @@ public class UserController {
 //        return (response.getSuccess())?new ResponseEntity<>(response,HttpStatus.OK):new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
             return new ResponseEntity<>(response,HttpStatus.OK);
     }
+
+
+    @GetMapping("/get-card")
+    public ResponseEntity<CustomApiResponse<Object>> getUserCard()
+    {
+        CustomApiResponse<Object> res = userService.getUserCard();
+        return new ResponseEntity<>(res,HttpStatus.OK);
+    }
 }

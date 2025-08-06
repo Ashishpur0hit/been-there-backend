@@ -19,7 +19,9 @@ public class Post {
     private Long postId;
     private String subject;
     private String caption;
+    @Column(length = 1000)
     private String media;
+    private String mediaKey;
     private LocalDateTime postedAt;
 
 
@@ -32,8 +34,7 @@ public class Post {
     private List<ChildPost> childs=new ArrayList<>();
 
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id")
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "post")
     private List<Comment> comments = new ArrayList<>();
 
 

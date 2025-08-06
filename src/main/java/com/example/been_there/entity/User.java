@@ -25,16 +25,14 @@ public class User {
     private LocalDateTime createdAt;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "post_id")
+    @JoinColumn(name = "profile_id")
     private Profile profile;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Post> posts = new ArrayList<>();
 
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private List<Comment> comments;
+
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(

@@ -1,9 +1,6 @@
 package com.example.been_there.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -17,5 +14,8 @@ public class ChildPost {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long childPostId;
     private  String caption;
+    @Column(length = 1000)
     private String media;
+    private String mediaKey;
+
 }

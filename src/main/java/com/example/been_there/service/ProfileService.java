@@ -230,6 +230,8 @@ public class ProfileService {
         Optional<Profile> profile = profileRepository.findById(profileId);
         if(profile.isPresent())
         {
+            profile.get().setProfile(generateUrl(profile.get().getProfileKey()));
+            profile.get().setCoverPhoto(generateUrl(profile.get().getCoverPhotoKey()));
             return CustomApiResponse.builder()
                     .success(true)
                     .message("Profile Found")

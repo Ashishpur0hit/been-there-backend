@@ -1,9 +1,6 @@
 package com.example.been_there.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -20,4 +17,12 @@ public class Comment {
     private Long commentId;
     private String content;
     private LocalDateTime commentedAt;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "post_id")
+    private Post post;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User user;
 }
